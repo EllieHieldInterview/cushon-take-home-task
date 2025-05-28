@@ -58,7 +58,7 @@ export function AccountCard({ account }: AccountCardProps) {
   };
 
   return (
-    <Card bg="#BDD3DB" mt="1rem">
+    <Card bg="#BDD3DB" mt="1rem" data-testid={"account-card"}>
       <Title order={3}>{account.accountType}</Title>
       {/** I used an online tool to check that the text contrast on this dimmed text
        * was compliant with my chosen background colour */}
@@ -88,6 +88,7 @@ export function AccountCard({ account }: AccountCardProps) {
                 {...depositForm.getInputProps("depositAmount")}
                 min={0}
                 flex={50}
+                data-testid={"deposit-value-number-input"}
               ></NumberInput>
             </Group>
             <Group>

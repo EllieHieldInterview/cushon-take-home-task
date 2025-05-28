@@ -15,7 +15,7 @@ export function UserDashboard(): JSX.Element {
         Accounts Overview
       </Title>
       {user.accounts.map((account) => (
-        <AccountCard account={account} />
+        <AccountCard account={account} key={account.accountId} />
       ))}
     </Container>
   );
