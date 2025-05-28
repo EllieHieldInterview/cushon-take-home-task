@@ -5,17 +5,19 @@ export enum AccountType {
   CushonPension = "Cushon Pension",
 }
 
-export const Funds = [
+// some example funds for users to invest in
+export const funds = [
   "Global Tracker",
   "Cushon High Risk",
   "Cushon Medium Risk",
   "Cushon Low Risk",
-];
+] as const;
 
 export interface Account {
   accountId: string;
   accountType: AccountType;
   totalValue: number;
+  // I should consider how to show pending transactions and other account info
 }
 
 export interface User {
@@ -26,6 +28,7 @@ export interface User {
   accounts: Account[];
 }
 
+// a sample user in the absense of a user database
 const testUser: User = {
   firstName: "Test",
   lastName: "User",
@@ -45,4 +48,6 @@ const testUser: User = {
   ],
 };
 
+/** I could consider splitting the user info into different atoms to make controlling
+ * state more granular  */
 export const userAtom = atom<User>(testUser);
