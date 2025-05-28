@@ -13,6 +13,9 @@ export const funds = [
   "Cushon Low Risk",
 ] as const;
 
+// I might consider moving types and interfaces to types.ts files to keep files small and readable
+export type FundTypes = (typeof funds)[number];
+
 export interface Account {
   accountId: string;
   accountType: AccountType;

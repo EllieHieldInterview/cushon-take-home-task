@@ -11,7 +11,8 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useState } from "react";
-import { funds, type Account } from "../../state/userState";
+import { funds, type Account, type FundTypes } from "../../state/userState";
+import { deposit } from "../../api/depositApi";
 
 export interface AccountCardProps {
   account: Account;
@@ -19,7 +20,7 @@ export interface AccountCardProps {
 
 interface DepositFormValues {
   depositAmount: number;
-  fundType: (typeof funds)[number] | undefined;
+  fundType: FundTypes;
 }
 
 /* I should consider whether it is appropriate for every account to use the same 
@@ -31,10 +32,6 @@ export function AccountCard({ account }: AccountCardProps) {
   const [depositFormOpen, setDepositFormOpen] = useState<boolean>(false);
 
   const depositForm = useForm<DepositFormValues>({
-    initialValues: {
-      depositAmount: 0,
-      fundType: undefined,
-    },
     validate: {
       depositAmount: (value) =>
         value <= 0 ? "Deposit amount must be greater than £0" : null,
@@ -49,11 +46,7 @@ export function AccountCard({ account }: AccountCardProps) {
   };
 
   const submitDepositForm = (values: DepositFormValues) => {
-    /** here is where I would call the api although I would use a helper function so this file
-     * does not know anything about the api */
-    window.alert(
-      `depositing £${values.depositAmount} into ${values.fundType} fund`
-    );
+    deposit(values.depositAmount, values.fundType, account.accountId);
     resetAndClose();
   };
 
