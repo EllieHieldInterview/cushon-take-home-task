@@ -18,7 +18,7 @@ I have decided not to implement react router as I wanted to focus in on a single
 
 etc.
 
-### Testing
+## Testing
 
 I have implemented a couple of simple example e2e tests using playwright
 
@@ -28,6 +28,6 @@ I have used the default github actions pipeline and would expand on this with an
 
 I would consider whether any individual components would be better tested in isolation with react testing library (for example the desposit modal could have the validation tested without the need for the full e2e set up). This would be beneficial as e2e tests can require more overhead to run and could then be kept for realistic user workflows instead of testing every aspect of every component.
 
-### API
+## API
 
-I would use different API files to reflect the back end APIs which might be microservices for each function of the bank, for example user service, account service ect. These would then interface with various databases. I would show the user the outcome of API calls and handle any errors which may occur.
+I would use different API files to reflect the back end APIs which might be microservices for each function of the bank, for example user service, account service ect. These would then interface with various databases. I would show the user the outcome of API calls and handle any errors which may occur possibly using notifications or by not allowing the user to proceed with a task.

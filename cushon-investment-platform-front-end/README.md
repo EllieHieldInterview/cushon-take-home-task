@@ -16,11 +16,11 @@ the app should be available at http://localhost:5173/
 
 This application has e2e tests using [Playwright](https://playwright.dev/)
 
-First start the application in one terminal window (see above)
+The application will be launched by the webserver command in the playwright.config.ts file
 
 ## Headless Mode
 
-In a second terminal window run
+To run the tests in headless mode run
 
 ```
 npm run e2e
@@ -28,7 +28,7 @@ npm run e2e
 
 ## Ui Mode
 
-To run the tests with the playwright UI, in a second terminal window run
+To launch the playwright UI run
 
 ```
 npm run e2e:ui
